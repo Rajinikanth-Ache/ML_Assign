@@ -40,11 +40,14 @@ public class MainClass {
 					System.out.println("zip Code is already exists");
 					break;
 				}
+				sc.nextLine();
 				System.out.println("enter Country name : ");
-				String cName=sc.next();
+				String cName=sc.nextLine();
 				System.out.println("enter State Name : ");
-				String sName=sc.next();
-				zip3.addrecords(zipp, new Area(cName, sName, zipp));
+				String sName=sc.nextLine();
+				System.out.println("enter Area Name");
+				String areaName=sc.nextLine();
+				zip3.addrecords(zipp, new Area(cName, sName, zipp,areaName));
 				System.out.println("***added successfully***");
 				break;
 				
