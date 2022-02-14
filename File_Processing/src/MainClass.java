@@ -12,6 +12,7 @@ public class MainClass {
 		do {
 			System.out.println("Enter 1 to get All the Logged In details by Name");
 			System.out.println("Enetr 2 to get Logged In Details by Name");
+			System.out.println("enter 3 to get the failed data ");
 			int n=sc.nextInt();
 			switch (n) {
 			case 1:
@@ -25,6 +26,9 @@ public class MainClass {
 				}catch (DetailsCustom e) {
 					System.err.println(e+" exception");
 				}
+				break;
+			case 3:
+				cl.failedData();
 				break;
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + n);

@@ -11,6 +11,10 @@ public class ProcessedData {
 	
 	Map<String, List<EntityClass>> map=new HashMap<>();
 	
+	Map<String,List<String>> failureMap=new HashMap<>();
+	
+	private final String key="FAILURE_DATA";
+	
 	public void getAllTheData() throws IOException{
 		File file=new File("data.txt");
 		FileReader fin=new FileReader(file);
@@ -21,6 +25,7 @@ public class ProcessedData {
 			for(String ss:st) {	
 				ss=ss.replaceAll("\\s{2,}"," ").trim();
 				String[] stdate=ss.split("\\s");
+				
 				if(stdate[0].matches("^[a-zA-Z]+$") && stdate[1].matches("^[0-1][0-9]/[0-3][0-9]$") && stdate[2].matches("([01]?[0-9]|2[0-3]):[0-5][0-9]") && stdate[3].matches("(am|pm|AM|PM)")) {
 				
 					if(map.containsKey(stdate[0])) {
@@ -33,7 +38,11 @@ public class ProcessedData {
 						map.put(stdate[0], ec2);
 					}
 					
-				}	
+				}else {
+					List<String> failList=failureMap.getOrDefault(key, new ArrayList<>());
+					failList.add(str);
+					failureMap.put(key, failList);
+				}
 			}
 		}
 	}
@@ -60,6 +69,10 @@ public class ProcessedData {
 		else {
 			throw new DetailsCustom("the user "+name+" not found here");
 		}
+	}
+	
+	public void failedData() {
+		System.out.println(failureMap);
 	}
 }
 	
