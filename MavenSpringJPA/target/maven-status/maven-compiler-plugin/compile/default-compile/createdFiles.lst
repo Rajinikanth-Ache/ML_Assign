@@ -1,0 +1,7 @@
+com\bhavna\springjpa\config\AppConfig.class
+com\bhavna\springjpa\controller\EmployeeController.class
+com\bhavna\springjpa\config\JpaConfig.class
+com\bhavna\springjpa\repository\EmployeeRepo.class
+com\bhavna\springjpa\service\EmployeeService.class
+com\bhavna\springjpa\entity\Employee.class
+com\bhavna\springjpa\config\AppIntializer.class
