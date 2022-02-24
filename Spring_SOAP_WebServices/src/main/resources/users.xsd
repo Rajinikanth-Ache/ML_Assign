@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.bhavna.com/ssw/users"
+	targetNamespace="http://www.bhavna.com/ssw/users"
+	elementFormDefault="qualified">
+
+	<xs:element name="userRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="userId" type="xs:int" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="userResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="user" type="tns:user" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="user">
+		<xs:sequence>
+			<xs:element name="userId" type="xs:int" />
+			<xs:element name="userName" type="xs:string" />
+			<xs:element name="age" type="xs:int" />
+			<xs:element name="location" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
