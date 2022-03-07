@@ -15,7 +15,7 @@ public class AdviceControllerClass {
 
 	@ExceptionHandler(NoSuchElementException.class)
 	public ResponseEntity<String> handleNoSuchElementException(NoSuchElementException noSuchElementException){
-		return new ResponseEntity<String>("The ID is not present in db please check it..",HttpStatus.NOT_FOUND);
+		return new ResponseEntity<String>(noSuchElementException.getMessage(),HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(EntityNotFoundException.class)
